@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{username}}{% endblock %}
+
+{% block body %}
+
+{% with flash_mssg = get_flashed_messages() %}
+{% if flash_mssg %}
+{% for msg in flash_mssg %}
+<p>{{msg}}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+{% if username %}
+<h1>Welcome, {{username}}</h1>
+<p>Log out <a href="/logout">Here</a></p>
+{% else %}
+<h1>Welcome, Home</h1>
+<p>Log in <a href="/login">Here</a></p>
+{% endif %}
+{% endblock %}
